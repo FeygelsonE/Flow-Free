@@ -20,7 +20,7 @@ In Flow Free, users will be able to:
 
 ## Wireframes
 
-(https://github.com/FeygelsonE/Wireframe-Screenshots/blob/master/Screen%20Shot%202018-02-12%20at%201.29.23%20AM.png)
+![alt text](https://github.com/FeygelsonE/Wireframe-Screenshots/blob/master/Screen%20Shot%202018-02-12%20at%201.29.23%20AM.png)
 
 ## Architecture and Technologies
 
