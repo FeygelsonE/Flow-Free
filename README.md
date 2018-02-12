@@ -4,8 +4,6 @@
 
 Flow Free is a puzzle game with many different levels. Each level has a grid of squares with colored dots on some of the squares. The objective of the game is to connect dots of the same color by drawing lines between them such that the entire grid is filled without intersecting the lines. Typically, the larger the grid, the more difficult the puzzle.
 
-Inspired by AirBnB, ezStay is a full-stack web application. The application was built with Ruby on Rails, React, and Redux. JavaScript ES6, PostgreSQL, and JS bundling was also used.
-
 ## Functionality & MVP
 
 In Flow Free, users will be able to:
