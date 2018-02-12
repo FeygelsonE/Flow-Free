@@ -10,13 +10,13 @@ Inspired by AirBnB, ezStay is a full-stack web application. The application was 
 
 In Flow Free, users will be able to:
 
-- [] Pick which difficulty of puzzle they want, easy, medium, or hard
-- [] Connect dots to solve puzzle
-- [] Hear sounds when connecting dots
-- [] See how many moves they made
-- [] See what perfect amount of moves is to complete each puzzle
-- [] See percentage of grid filled
-- [] Be notified when level is completed
+- [ ] Pick which difficulty of puzzle they want, easy, medium, or hard
+- [ ] Connect dots to solve puzzle
+- [ ] Hear sounds when connecting dots
+- [ ] See how many moves they made
+- [ ] See what perfect amount of moves is to complete each puzzle
+- [ ] See percentage of grid filled
+- [ ] Be notified when level is completed
 
 ## Wireframes
 
@@ -36,23 +36,23 @@ In Flow Free, users will be able to:
 
 Day 1:
 
-- [] Set up environment for grid
+- [ ] Set up environment for grid
 
 Day 2:
 
-- [] Get dot connection and game completion logic working
+- [ ] Get dot connection and game completion logic working
 
 Day 3:
 
-- [] Create 20 levels to play
+- [ ] Create 20 levels to play
 
 Day 4:
 
 Implement:
-- [] Sound
-- [] Showing percentage of grid filled
-- [] Show how many moves have been made
+- [ ] Sound
+- [ ] Showing percentage of grid filled
+- [ ] Show how many moves have been made
 
 Bonus:
 
-- [] Make game more complicated and more similar to 'Two Dots'
+- [ ] Make game more complicated and more similar to 'Two Dots'
