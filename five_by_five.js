@@ -139,20 +139,28 @@ let realY;
 let curLoc;
 
 function onMouseClick(e) {
-  console.log(grid2.tiles);
   xCord = Math.floor(e.clientX / 50) * 50;
   yCord = Math.floor(e.clientY / 50) * 50;
   realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
   realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
   curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
-  console.log(grid2.tiles[curLoc[1]][curLoc[0]]);
+  if (grid2.tiles[curLoc[1]][curLoc[0]] === "black") {
+    return;
+  }
   ctx.fillStyle = grid2.tiles[curLoc[1]][curLoc[0]];
   ctx.strokeStyle = grid2.tiles[curLoc[1]][curLoc[0]];
-  console.log(realX, realY);
-  // console.log(realX, realY);
   mouseClicked = !mouseClicked;
-  // let line = new LeftLine();
-  // line.draw2();
+  let congrats = true;
+  for (let i = 0; i < answerKey.length; i++) {
+    for (let j = 0; j < answerKey.length; j++) {
+      if (grid2.tiles[i][j] !== answerKey[i][j]) {
+        congrats = false;
+      }
+    }
+  }
+  if (congrats) {
+    alert("You win!");
+  }
 }
 
 
@@ -160,21 +168,13 @@ function onMouseClick(e) {
 
 class UpLine {
   constructor() {
-    // console.log(xCord, yCord);
-    // console.log(xCord / 100);
     this.x = realX;
     this.y = realY;
     let xLine = realX;
     let yLine = realY;
-    // this.start = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
-    // console.log("start", this.start);
-    // console.log("grid2.tiles", grid2.tiles);
     this.color = grid2.tiles[curLoc[1]][curLoc[0]];
-    // console.log("color", this.color);
     let lineColor = grid2.tiles[curLoc[1]][curLoc[0]];
     grid2.tiles[curLoc[1] - 1][curLoc[0]] = lineColor;
-    // grid2.tiles[this.start[1]][this.start[0]]
-    // console.log(xLine, yLine);
     this.draw2 = () => {
       ctx.strokeStyle = lineColor;
       ctx.fillStyle = lineColor;
@@ -303,8 +303,17 @@ function onMouseMove(e) {
         realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
         curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
       }
-
     }
   }
 
 }
+
+let answerKey = [["red", "red", "red", "red", "red"],
+                 ["red", "yellow", "blue", "blue", "red"],
+                 ["red", "yellow", "blue", "red", "red"],
+                 ["red", "yellow", "red", "red", "green"],
+                 ["red", "yellow", "green", "green", "green"]];
+
+// while (answerKey !== grid2.tiles) {
+//  // console.log(answerKey, grid2.tiles);
+// }

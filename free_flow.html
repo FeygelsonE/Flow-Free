@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-<canvas id="grid" width="500" height="500" style="background: black; border:1px solid #2A2A2A;">
-</canvas>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/flow.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <div class="navbar">
+    <a class="icon" href="https://www.linkedin.com/in/emmanuel-feygelson-483b44144/" target="_blank"><i class="fab fa-linkedin-in fa-3x"></i></a>
+    <a class="icon" href="https://github.com/FeygelsonE/Flow-Free" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+  </div>
+  </br>
+  <canvas id="grid" width="500" height="500" style="background: black; border:1px solid #2A2A2A;">
+  </canvas>
 
-<script src="five_by_five.js"></script>
-<input type="button" value="Level Reset" onClick="window.location.reload()">
+  <script src="five_by_five.js"></script>
+  <div class="button-container">
+    <input class="reset-button" type="button" value="Level Reset" onClick="window.location.reload()">
+  </div>
 </body>
 </html>
