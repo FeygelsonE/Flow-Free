@@ -8,12 +8,9 @@ Flow Free is a puzzle game with many different levels. Each level has a grid of 
 
 In Flow Free, users will be able to:
 
-- [ ] Pick which difficulty of puzzle they want, easy, medium, or hard
-- [ ] Connect dots to solve puzzle
-- [ ] Hear sounds when connecting dots
-- [ ] See how many moves they made
-- [ ] See what perfect amount of moves is to complete each puzzle
-- [ ] See percentage of grid filled
+- [ ] Click on grid to select color
+- [ ] Move mouse to draw line with correct color
+- [ ] Choose which level to play
 - [ ] Be notified when level is completed
 
 ## Wireframes
@@ -24,11 +21,10 @@ In Flow Free, users will be able to:
 
 * Vanilla JavaScript
 * HTML5 Canvas
-* Webpack
 
-`grid.js` will be the board with game completion logic
+`level_x.js` will be level logic in JavaScript
 
-`dots.js` will have the dot connection logic
+`level_x.html` will be HTML of each level
 
 ## Timeline
 
@@ -42,15 +38,12 @@ Day 2:
 
 Day 3:
 
-- [ ] Create 20 levels to play
+- [ ] Create 6 levels to play
 
 Day 4:
 
-Implement:
-- [ ] Sound
-- [ ] Showing percentage of grid filled
-- [ ] Show how many moves have been made
+- [ ] Finish uncompleted features
 
 Bonus:
 
-- [ ] Make game more complicated and more similar to 'Two Dots'
+- [ ] Add sound, harder levels
