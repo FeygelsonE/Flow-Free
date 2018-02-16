@@ -1,6 +1,6 @@
 # Flow Free
 
-![alt text](https://feygelsone.github.io/Flow)
+[Live Demo!](https://feygelsone.github.io/Flow)
 
 ## Background and Overview
 
