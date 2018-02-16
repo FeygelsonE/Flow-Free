@@ -3,6 +3,47 @@ body {
   margin-top: 50px;
 }
 
+.link-to-specific-level {
+  font-family: sans-serif;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  border-radius: 4px;
+  border: 2px solid #00000000 transparent;
+  background: #6e2391;
+  color: white;
+  width: 150px;
+  line-height: 25px;
+  font-size: 19px;
+  padding: 10px;
+  font-weight: 500;
+  margin: 6px;
+}
+
+.link-to-specific-level:hover {
+  color: #ea2828;
+  font-weight: 800;
+}
+
+.even-levels {
+
+}
+
+.level-selection-container {
+  display: flex;
+  width: 1200px;
+}
+
+.level-link {
+  display: flex;
+  margin-top: 150px;
+  margin-left: 10px;
+  flex: 1;
+
+  height: 200px;
+}
+
 .navbar {
   width: 500px;
   height: 62px;
