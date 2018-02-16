@@ -5,6 +5,18 @@ body {
 
 .navbar {
   width: 500px;
+  height: 62px;
+}
+
+.level {
+  float: right;
+  margin-top: 5px;
+  margin-right: 68px;
+  font-size: 19px;
+  font-weight: 500;
+  background: #23366b;
+  padding: 10px;
+  color: white;
 }
 
 .icon {

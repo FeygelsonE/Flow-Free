@@ -94,29 +94,29 @@ let grid2 = new Grid();
 grid2.createGrid();
 
 let dot1 = new Dots();
-dot1.redDot(50, 450);
-grid2.tiles[4][0] = "red";
+dot1.redDot(50, 50);
+grid2.tiles[0][0] = "red";
 let dot2 = new Dots();
-dot2.redDot(250, 350);
-grid2.tiles[3][2] = "red";
+dot2.redDot(450, 50);
+grid2.tiles[0][4] = "red";
 let dot3 = new Dots();
-dot3.yellowDot(150, 450);
-grid2.tiles[4][1] = "yellow";
+dot3.yellowDot(450, 150);
+grid2.tiles[1][4] = "yellow";
 let dot4 = new Dots();
-dot4.yellowDot(150, 150);
-grid2.tiles[1][1] = "yellow";
+dot4.yellowDot(350, 450);
+grid2.tiles[4][3] = "yellow";
 let dot5 = new Dots();
-dot5.blueDot(250, 250);
-grid2.tiles[2][2] = "blue";
+dot5.blueDot(150, 150);
+grid2.tiles[1][1] = "blue";
 let dot6 = new Dots();
 dot6.blueDot(350, 150);
 grid2.tiles[1][3] = "blue";
 let dot7 = new Dots();
-dot7.greenDot(250, 450);
-grid2.tiles[4][2] = "green";
+dot7.greenDot(250, 150);
+grid2.tiles[1][2] = "green";
 let dot8 = new Dots();
-dot8.greenDot(450, 350);
-grid2.tiles[3][4] = "green";
+dot8.greenDot(150, 350);
+grid2.tiles[3][1] = "green";
 
 ctx.fillStyle = "black";
 ctx.strokeStyle = "black";
@@ -139,8 +139,9 @@ let realY;
 let curLoc;
 
 function onMouseClick(e) {
-  xCord = Math.floor(e.clientX / 50) * 50;
-  yCord = Math.floor(e.clientY / 50) * 50;
+  console.log(grid2.tiles);
+  xCord = Math.floor((e.clientX - 100) / 50) * 50;
+  yCord = Math.floor((e.clientY - 112) / 50) * 50;
   realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
   realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
   curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
@@ -159,7 +160,8 @@ function onMouseClick(e) {
     }
   }
   if (congrats) {
-    alert("You win!");
+    alert("You won! Move onto the next level");
+    window.location.href = "easy_level_3.html";
   }
 }
 
@@ -256,52 +258,83 @@ class LeftLine {
 
 function onMouseMove(e) {
   if (mouseClicked) {
-    if (e.clientX - realX > 50 && Math.abs(e.clientY - realY) < 50 && curLoc[0] < 4) {
+    if (e.clientX < 95 || e.clientX > 605 || e.clientY < 95 || e.clientY > 605) {
+      mouseClicked = !mouseClicked;
+    }
+    if ((e.clientX - 100) - realX > 50 && Math.abs((e.clientY - 112) - realY) < 50 && curLoc[0] < 4) {
       if (grid2.tiles[curLoc[1]][curLoc[0] + 1] === "black" || grid2.tiles[curLoc[1]][curLoc[0] + 1] === grid2.tiles[curLoc[1]][curLoc[0]]) {
         let line = new RightLine();
         line.draw2();
-        xCord = Math.floor(e.clientX / 50) * 50;
-        yCord = Math.floor(e.clientY / 50) * 50;
+        xCord = Math.floor((e.clientX - 100) / 50) * 50;
+        yCord = Math.floor((e.clientY - 112) / 50) * 50;
         realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
         realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
         curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
+        ctx.beginPath();
+        ctx.arc(realX, realY, 0.6 , 0, 2 * Math.PI);
+        let lineColor = grid2.tiles[curLoc[1]][curLoc[0]];
+        ctx.fillStyle = lineColor;
+        ctx.strokeStyle = lineColor;
+        ctx.stroke();
+        ctx.fill();
       }
 
 
     }
-    if (e.clientX - realX < -50 && Math.abs(e.clientY - realY) < 50 && curLoc[0] > 0) {
+    if ((e.clientX - 100) - realX < -50 && Math.abs((e.clientY - 112) - realY) < 50 && curLoc[0] > 0) {
       if (grid2.tiles[curLoc[1]][curLoc[0] - 1] === "black" || grid2.tiles[curLoc[1]][curLoc[0] - 1] === grid2.tiles[curLoc[1]][curLoc[0]]) {
         let line = new LeftLine();
         line.draw2();
-        xCord = Math.floor(e.clientX / 50) * 50;
-        yCord = Math.floor(e.clientY / 50) * 50;
+        xCord = Math.floor((e.clientX - 100) / 50) * 50;
+        yCord = Math.floor((e.clientY - 112) / 50) * 50;
         realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
         realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
         curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
+        ctx.beginPath();
+        ctx.arc(realX, realY, 0.6 , 0, 2 * Math.PI);
+        let lineColor = grid2.tiles[curLoc[1]][curLoc[0]];
+        ctx.fillStyle = lineColor;
+        ctx.strokeStyle = lineColor;
+        ctx.stroke();
+        ctx.fill();
       }
 
     }
-    if (e.clientY - realY < -50 && Math.abs(e.clientX - realX) < 50 && curLoc[1] > 0) {
+    if ((e.clientY - 112) - realY < -50 && Math.abs((e.clientX - 100) - realX) < 50 && curLoc[1] > 0) {
       if (grid2.tiles[curLoc[1] - 1][curLoc[0]] === "black" || grid2.tiles[curLoc[1] - 1][curLoc[0]] === grid2.tiles[curLoc[1]][curLoc[0]]) {
         let line = new UpLine();
         line.draw2();
-        xCord = Math.floor(e.clientX / 50) * 50;
-        yCord = Math.floor(e.clientY / 50) * 50;
+        xCord = Math.floor((e.clientX - 100) / 50) * 50;
+        yCord = Math.floor((e.clientY - 112) / 50) * 50;
         realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
         realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
         curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
+        ctx.beginPath();
+        ctx.arc(realX, realY, 0.6 , 0, 2 * Math.PI);
+        let lineColor = grid2.tiles[curLoc[1]][curLoc[0]];
+        ctx.fillStyle = lineColor;
+        ctx.strokeStyle = lineColor;
+        ctx.stroke();
+        ctx.fill();
       }
 
     }
-    if (e.clientY - realY > 50 && Math.abs(e.clientX - realX) < 50 && curLoc[1] < 4) {
+    if ((e.clientY - 112) - realY > 50 && Math.abs((e.clientX - 100) - realX) < 50 && curLoc[1] < 4) {
       if (grid2.tiles[curLoc[1] + 1][curLoc[0]] === "black" || grid2.tiles[curLoc[1] + 1][curLoc[0]] === grid2.tiles[curLoc[1]][curLoc[0]]) {
         let line = new DownLine();
         line.draw2();
-        xCord = Math.floor(e.clientX / 50) * 50;
-        yCord = Math.floor(e.clientY / 50) * 50;
+        xCord = Math.floor((e.clientX - 100) / 50) * 50;
+        yCord = Math.floor((e.clientY - 112) / 50) * 50;
         realX = (((Math.floor(xCord / 100)) * 2) + 1) * 50;
         realY = (((Math.floor(yCord / 100)) * 2) + 1) * 50;
         curLoc = [ Math.floor(xCord / 100), Math.floor(yCord / 100)];
+        ctx.beginPath();
+        ctx.arc(realX, realY, 0.6 , 0, 2 * Math.PI);
+        let lineColor = grid2.tiles[curLoc[1]][curLoc[0]];
+        ctx.fillStyle = lineColor;
+        ctx.strokeStyle = lineColor;
+        ctx.stroke();
+        ctx.fill();
       }
     }
   }
@@ -309,11 +342,7 @@ function onMouseMove(e) {
 }
 
 let answerKey = [["red", "red", "red", "red", "red"],
-                 ["red", "yellow", "blue", "blue", "red"],
-                 ["red", "yellow", "blue", "red", "red"],
-                 ["red", "yellow", "red", "red", "green"],
-                 ["red", "yellow", "green", "green", "green"]];
-
-// while (answerKey !== grid2.tiles) {
-//  // console.log(answerKey, grid2.tiles);
-// }
+                 ["blue", "blue", "green", "blue", "yellow"],
+                 ["blue", "green", "green", "blue", "yellow"],
+                 ["blue", "green", "blue", "blue", "yellow"],
+                 ["blue", "blue", "blue", "yellow", "yellow"]];
